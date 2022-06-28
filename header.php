@@ -45,7 +45,7 @@
 		<!-- or, set /favicon.ico for IE10 win -->
 		<meta name="msapplication-TileColor" content="#f01d4f">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/lib/images/win8-tile-icon.png">
-
+		<meta name="theme-color" content="#46962b">
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
@@ -87,6 +87,29 @@
 
 		<div id="wrap">
 			
+			
+		<header id="header-eos">
+			<!--<div class="wechselzeit">
+				<h2>Wechselzeit!</h2>
+				<p class="magenta">Wer jetzt von Urwahl3000 auf eines unserer GRÜNES INTERNET Pakete wechselt, spart 50% der Einrichtungsgebühr.*</p>
+				<p class="weiss">Das Angebot ist gültig bis zum 30.06.2022<br/>
+					und bezieht sich auf die Einrichtungsgebühr des jeweiligen Pakets.
+				</p>
+			</div>-->
+			<div class="eos">
+				<h2>EOS - END OF SERVICE</h2>
+				<p>Wir stellen unseren Support für das kostenlose Theme Urwahl3000 zum 31.12.2021 ein. <br/>
+					Natürlich könnt ihr das Theme weiterhin nutzen und unter <a href="https://github.com/kre8tiv/urwahl3000">github</a> wird es auch in Zukunft als Download zur Verfügung stehen.<br/>
+					Unter <a href="https://www.das-gruene-internet.de">GRÜNES INTERNET</a> findet ihr unsere neuen Web-Lösungen auf Wordpress-Basis und bis zum 30.06.2022<br/>
+					spart ihr 50% der Einrichtungsgebühren.
+				</p>
+				<p>Euer Team von GRÜNES INTERNET</p>
+			</div>
+		</header>
+			
+			
+			
+			<!--
 			<?php if (get_header_image() != '') {	?>
 				<?php do_action('kr8_vor_header'); ?>
 				<?php do_action('kr8_vor_header_mitbild'); ?>
@@ -99,8 +122,16 @@
 
 				<?php if ( display_header_text() ) : ?>
 					<p id="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Zur Startseite"><img src="
-					<?php 	$logo = 'lib/images/logo.png';
-							$logo = locate_template( $logo );
+					<?php 	$vectorlogo = 'lib/images/logo.svg';
+							$pixellogo = 'lib/images/logo.png';
+							if( file_exists( trailingslashit( get_stylesheet_directory() ) . $vectorlogo ) ) {
+								$logo = trailingslashit( get_stylesheet_directory() ) . $vectorlogo;
+							} elseif( file_exists( trailingslashit( get_stylesheet_directory() ) . $pixellogo ) ) {
+								$logo = trailingslashit( get_stylesheet_directory() ) . $pixellogo;
+							} else {
+								$logo = trailingslashit( get_template_directory() ) . $vectorlogo;
+							}
+							
 							$logo = str_replace(get_theme_root(), get_theme_root_uri(), $logo);
 							echo $logo;
 					?>" width="185" height="100" alt="<?php bloginfo('name'); ?>"></a></p>
@@ -117,10 +148,10 @@
 
 				<?php do_action('kr8_im_header'); ?>
 			</header>
-
+			-->
 			<?php do_action('kr8_nach_header'); ?>
 				
-			<nav class="mobile-switch"><ul><li class="first"><a id="switch-menu" href="#menu"><span class="fa fa-bars"></span><span class="hidden">Menü</span></a></li><li class="last"><a id="switch-search" href="#search"><span class="fa fa-search"></span><span class="hidden">Suche</span></a></li></ul></nav>
+			<nav class="mobile-switch"><ul><li class="first"><a id="switch-menu" href="#menu"><span class="fas fa-bars"></span><span class="hidden">Menü</span></a></li><li class="last"><a id="switch-search" href="#search"><span class="fas fa-search"></span><span class="hidden">Suche</span></a></li></ul></nav>
 
 			<?php do_action('kr8_vor_navwrap'); ?>
 
